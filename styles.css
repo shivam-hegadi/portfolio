@@ -34,7 +34,9 @@ body {
 }
 
 .site-header {
-  background: var(--nav);
+  background: rgba(10, 26, 42, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   position: sticky;
   top: 0;
@@ -52,7 +54,7 @@ body {
 .brand {
   color: #fff;
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.2px;
 }
 
@@ -61,7 +63,7 @@ nav a {
   text-decoration: none;
   margin-left: 22px;
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 650;
 }
 
 nav a:hover {
@@ -75,38 +77,41 @@ nav a:focus {
   border-radius: 2px;
 }
 
-/* Hero: flat, corporate, no gradients */
+/* Hero: subtle gradient + pattern (professional but fun) */
 .hero {
-  background: var(--nav);
   color: #fff;
-  padding: 96px 0 86px;
+  padding: 104px 0 90px;
+  background:
+    radial-gradient(900px 600px at 20% 10%, rgba(0, 87, 184, 0.38), transparent 60%),
+    radial-gradient(700px 520px at 80% 0%, rgba(0, 166, 255, 0.25), transparent 55%),
+    linear-gradient(180deg, #0a1a2a 0%, #081522 100%);
 }
 
 .hero-content {
-  max-width: 860px;
+  max-width: 900px;
 }
 
 .eyebrow {
   margin: 0 0 14px;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 2.4px;
   font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.72);
-  font-weight: 700;
+  color: rgba(255, 255, 255, 0.78);
+  font-weight: 800;
 }
 
 h1 {
   margin: 0;
-  font-size: clamp(2.1rem, 3.4vw, 3.3rem);
-  line-height: 1.12;
-  letter-spacing: -0.02em;
+  font-size: clamp(2.2rem, 3.6vw, 3.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
 }
 
 .lead {
   margin: 18px 0 30px;
-  color: rgba(255, 255, 255, 0.82);
-  font-size: 1.08rem;
-  max-width: 70ch;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 1.1rem;
+  max-width: 72ch;
 }
 
 .button {
@@ -115,14 +120,17 @@ h1 {
   background: var(--accent);
   color: #fff;
   padding: 12px 18px;
-  border-radius: 2px; /* more "flat corporate" */
-  font-weight: 700;
+  border-radius: 10px;
+  font-weight: 800;
   letter-spacing: 0.2px;
   border: 1px solid transparent;
+  transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
 }
 
 .button:hover {
   background: var(--accent-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
 }
 
 .button:focus {
@@ -136,8 +144,8 @@ h1 {
 
 .section h2 {
   margin: 0 0 18px;
-  font-size: 1.9rem;
-  letter-spacing: -0.01em;
+  font-size: 1.95rem;
+  letter-spacing: -0.02em;
 }
 
 .grid {
@@ -146,16 +154,19 @@ h1 {
   gap: 20px;
 }
 
-/* Flat tiles: remove heavy shadows */
+/* Cards: softer corners + tiny shadow */
 .card {
   background: #fff;
   padding: 22px;
   border: 1px solid var(--line);
-  border-radius: 0;
-  box-shadow: none;
+  border-radius: 14px;
+  box-shadow: 0 10px 22px rgba(11, 31, 51, 0.06);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
 .card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px rgba(11, 31, 51, 0.09);
   border-color: #b8c6d4;
 }
 
@@ -165,7 +176,7 @@ h1 {
   text-transform: uppercase;
   letter-spacing: 1.6px;
   font-size: 0.72rem;
-  font-weight: 800;
+  font-weight: 850;
 }
 
 .card h3 {
@@ -182,7 +193,7 @@ h1 {
 .card a {
   color: var(--link);
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .card a:hover {
@@ -190,17 +201,20 @@ h1 {
   text-underline-offset: 5px;
 }
 
-/* Work card topic icons (small) */
+/* Work card topic icons (small, fun) */
 .card-icon {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--line);
-  background: var(--bg-alt);
+  border: 1px solid rgba(0, 87, 184, 0.22);
+  background:
+    radial-gradient(16px 16px at 30% 30%, rgba(0, 87, 184, 0.18), transparent 70%),
+    var(--bg-alt);
   color: var(--accent);
   margin-bottom: 12px;
+  border-radius: 12px;
 }
 
 .card-icon svg {
@@ -231,11 +245,12 @@ h1 {
 .stats li {
   background: #fff;
   border: 1px solid var(--line);
-  border-radius: 0;
+  border-radius: 14px;
   padding: 16px;
   margin-bottom: 12px;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 10px 22px rgba(11, 31, 51, 0.05);
 }
 
 .stats strong {
@@ -252,18 +267,24 @@ h1 {
 
 .button-outline {
   background: transparent;
-  border: 1px solid var(--accent);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #fff;
+}
+
+/* In light sections (contact button in section uses .button without outline) */
+.section .button-outline {
+  border-color: var(--accent);
   color: var(--accent);
 }
 
-.button-outline:hover {
+.section .button-outline:hover {
   background: var(--accent);
   color: #fff;
 }
 
 .site-footer {
-  background: var(--nav);
-  color: rgba(255, 255, 255, 0.8);
+  background: #081522;
+  color: rgba(255, 255, 255, 0.82);
   padding: 24px 0;
   text-align: center;
 }
@@ -300,7 +321,9 @@ h1 {
 
 .hero-highlights li {
   border: 1px solid rgba(255, 255, 255, 0.14);
-  padding: 12px;
+  padding: 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .hero-highlights strong {
@@ -310,7 +333,7 @@ h1 {
 
 .hero-highlights span {
   display: block;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.78);
   font-size: 0.92rem;
   margin-top: 2px;
 }
