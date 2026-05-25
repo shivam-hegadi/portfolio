@@ -190,20 +190,22 @@ h1 {
   text-underline-offset: 5px;
 }
 
-/* Work card media (real images) */
-.card-media {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
+/* Work card topic icons (small) */
+.card-icon {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: 1px solid var(--line);
   background: var(--bg-alt);
-  margin-bottom: 14px;
+  color: var(--accent);
+  margin-bottom: 12px;
 }
 
-.card-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.card-icon svg {
+  width: 18px;
+  height: 18px;
   display: block;
 }
 
